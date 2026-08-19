@@ -1,0 +1,521 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #3b164d 0%, #180d25 40%, #07050d 100%);
+
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+
+/* YILDIZLAR */
+
+#stars {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,200,240,.5) 1px, transparent 1px);
+
+    background-size: 90px 90px, 140px 140px;
+
+    animation: starsMove 15s linear infinite;
+
+    opacity: .6;
+}
+
+@keyframes starsMove {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(90px);
+    }
+}
+
+
+/* ANA ALAN */
+
+#experience {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* EKRANLAR */
+
+.screen {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* BAŞLANGIÇ FOTOĞRAFI */
+
+.intro-photo {
+    width: min(78vw, 330px);
+    height: min(78vw, 330px);
+
+    padding: 8px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #ffd6f5,
+        #b65cff,
+        #ff79c8
+    );
+
+    box-shadow:
+        0 0 30px rgba(255, 105, 210, .5),
+        0 0 90px rgba(180, 70, 255, .25);
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.intro-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+@keyframes floating {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* ANA BAŞLIK */
+
+#welcome h1 {
+    margin-top: 35px;
+
+    font-size: clamp(38px, 10vw, 75px);
+
+    line-height: 1.05;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffb8e8,
+        #fff
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+
+/* ALT YAZI */
+
+.hint {
+    margin-top: 35px;
+
+    opacity: .65;
+
+    font-size: 14px;
+
+    animation: pulse 1.7s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .25;
+    }
+}
+
+
+/* FURKAN YAZISI */
+
+.magic-text {
+    animation: magicIn 1.5s ease forwards;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.magic-text span {
+    font-size: 20px;
+    opacity: .65;
+}
+
+.magic-text strong {
+    font-size: clamp(35px, 9vw, 70px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ff9cdb,
+        #d59cff,
+        #fff
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 3s linear infinite;
+}
+
+@keyframes magicIn {
+    from {
+        opacity: 0;
+        transform: scale(.5) rotate(-5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+/* GALERİ */
+
+.gallery {
+    min-height: 100vh;
+
+    padding:
+        35px
+        20px
+        100px;
+
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: clamp(30px, 7vw, 50px);
+
+    margin:
+        25px
+        0
+        35px;
+
+    color: #ffd1ef;
+}
+
+
+/* İLK FOTOĞRAF */
+
+.top-memory {
+    position: sticky;
+
+    top: 15px;
+
+    z-index: 5;
+
+    width: 85px;
+    height: 85px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    padding: 3px;
+
+    background: linear-gradient(
+        135deg,
+        #ff77c8,
+        #a96bff
+    );
+
+    box-shadow:
+        0 0 25px rgba(255, 90, 200, .45);
+}
+
+.top-memory img {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.top-memory span {
+    position: absolute;
+
+    right: -5px;
+    bottom: -5px;
+
+    font-size: 20px;
+}
+
+
+/* FOTOĞRAF */
+
+.memory-photo {
+    width: min(88vw, 430px);
+
+    margin:
+        25px auto;
+
+    padding: 8px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        #ff9bdd,
+        #8e5cff
+    );
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.45),
+        0 0 30px rgba(220,100,255,.25);
+
+    overflow: hidden;
+}
+
+.memory-photo img {
+    display: block;
+
+    width: 100%;
+
+    border-radius: 16px;
+
+    object-fit: cover;
+}
+
+
+/* ANİMASYONLAR */
+
+.from-left {
+    animation: fromLeft .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.from-right {
+    animation: fromRight .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.from-top {
+    animation: fromTop .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.from-bottom {
+    animation: fromBottom .9s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes fromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100vw) rotate(-12deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+}
+
+@keyframes fromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100vw) rotate(12deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100vh) rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+
+/* SAYI */
+
+.photo-counter {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    opacity: .6;
+}
+
+
+/* SON */
+
+#final {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.final-heart {
+    font-size: 90px;
+
+    animation:
+        heartbeat 1.4s infinite,
+        floating 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+#final h1 {
+    margin-top: 25px;
+
+    font-size: clamp(42px, 10vw, 80px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ff8bd5,
+        #c38aff,
+        #fff
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 3s linear infinite;
+}
+
+.final-message {
+    max-width: 600px;
+
+    margin-top: 35px;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+}
+
+.final-message strong {
+    display: block;
+
+    margin-top: 25px;
+
+    font-size: 27px;
+
+    color: #ffb3e4;
+}
+
+.final-message small {
+    display: block;
+
+    margin-top: 30px;
+
+    opacity: .55;
+}
+
+
+/* KALP PARÇACIKLARI */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 18px;
+
+    pointer-events: none;
+
+    animation: heartFly 5s linear forwards;
+
+    z-index: 10;
+}
+
+@keyframes heartFly {
+    from {
+        opacity: 0;
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+    }
+}
